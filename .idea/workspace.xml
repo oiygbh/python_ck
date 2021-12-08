@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fdefc210-6d75-4388-9e31-30f19dba043d" name="默认变更列表" comment="">
+    <list default="true" id="fdefc210-6d75-4388-9e31-30f19dba043d" name="默认变更列表" comment="第二天作业">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_02day/1.py" beforeDir="false" afterPath="$PROJECT_DIR$/class_02day/1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class_02day/1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/class_02day/class1.py" beforeDir="false" afterPath="$PROJECT_DIR$/class_02day/class1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class_02day/class_02_homework.py" beforeDir="false" afterPath="$PROJECT_DIR$/class_02day/class_02_homework.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +20,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
@@ -52,7 +55,7 @@
       <recent name="E:\workspace\PythonWorkspace\python_ck\class_02day" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.class_02_homework">
+  <component name="RunManager" selected="Python.class1 (1)">
     <configuration name="class1 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python_ck" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -160,9 +163,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.class1 (1)" />
         <item itemvalue="Python.class_02_homework" />
         <item itemvalue="Python.class2" />
-        <item itemvalue="Python.class1 (1)" />
         <item itemvalue="Python.class1" />
       </list>
     </recent_temporary>
@@ -176,6 +179,14 @@
       <option name="presentableId" value="Default" />
       <updated>1638586228193</updated>
     </task>
+    <task id="LOCAL-00001" summary="第二天作业">
+      <created>1638869965638</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1638869965638</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,6 +200,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="第二天作业" />
+    <option name="LAST_COMMIT_MESSAGE" value="第二天作业" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

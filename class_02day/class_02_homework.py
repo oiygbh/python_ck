@@ -13,7 +13,7 @@ dict_str = {i.split("=")[0]: i.split("=")[1] for i in cook_str.split(";")}
 print(dict_str)
 
 
-#  2、当前有文件case.exce1,设计程序将exce1中的用例读取到一个生成器?
+#  2、当前有文件case.xls,设计程序将excel中的用例读取到一个生成器?
 
 def read_excel(file_path, sheet_name):
     """
