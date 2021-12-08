@@ -51,3 +51,22 @@ g = gen()
 print(next(g))
 print(g.send(100))
 print(next(g))
+
+
+#  生成器的三个方法 send close throw
+# send
+def gen_01():
+    j = 0
+    for i in range(5):
+        j = yield i
+        print(j)
+
+
+f = gen_01()
+print(next(f))
+f.send(999)
+print(next(f))
+# close  关闭生成器
+f.close()  # 关闭生成器
+#  在生成器内部主动引发一个异常  参数：异常类型 异常信息
+f.throw(ValueError, "hello toby")
