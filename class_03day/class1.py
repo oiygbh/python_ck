@@ -2,8 +2,7 @@
 # @Author :jiale
 # @File : class1.py 
 # @Software: PyCharm
-#  迭代器、可迭代对象、生成器
-from collections import Iterator, Iterable, Generator
+
 #  递归函数：在函数中调用函数本身
 #  案例需求一：通过递归函数实现任意数的阶乘
 
