@@ -8,21 +8,43 @@
 #  3、内层嵌套函数有引用外层的一个非全局变量
 #  作用
 #  4、实现书局锁定，提高稳定性
-def func(num):
-    def count_book():
-        print(num)
-        print("哈哈哈哈")
+# def func(num):
+#     def count_book():
+#         print(num)
+#         print("哈哈哈哈")
+#
+#     return count_book()
 
-    return count_book()
+
+# func(1999)
 
 
-func(1999)
+def login(func):  # func是被装饰函数
+    def fun():
+        username = "toby"
+        password = "123456"
+        user = input("请输入账号：")
+        pwd = input("请输入密码：")
+        if user == username and pwd == password:
+            func()
+        else:
+            print("账号或者密码错误")
+
+    return fun
 
 
 #  装饰器，不修改现有代码，添加新功能
 #  开放封闭功能
+@login  # @login：语法糖 -->index=login(index)
 def index():
     print("这是网站首页")
 
 
-index()
+
+# print(index.__closure__)
+index()  # 等于login(index)
+# 装饰器应用场景
+#1、登录验证
+#2、函数运行时间统计
+#3、执行函数之前的准备工作
+#4、执行函数之后的清理工作
