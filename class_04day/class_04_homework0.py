@@ -13,7 +13,6 @@
 """
 from openpyxl import load_workbook
 
-from class_02day.class_02_homework import read_excel
 import time
 
 print("--------------------计算函数运行时间--------------------")
@@ -46,22 +45,40 @@ print("--------------------读取excel--------------------")
 
 
 # 读取每一条测试用用例分别保存到字典中，然后再将所有用例保存到列表中，如[{用例1},{用例2},{用例3}]
-def read_case(file_path, sheet_name):
-    workbook = load_workbook(file_path)
-    sheet = workbook[sheet_name]
-    row_max = sheet.max_row  # 最大行
-    column_max = sheet.max_column  # 最大列
-    test_case = []
-    for row in range(2, row_max + 1):
-        user_data = {}
-        user_data['username'] = sheet.cell(row, 1).value
-        user_data['password'] = sheet.cell(row, 2).value
-        user_data['token'] = sheet.cell(row, 3).value
-        test_case.append(user_data)
-    print("读取到的所有测试数据：", test_case)
-    print(type(test_case))
+class DoExcel:
+    @staticmethod
+    def read_case(file_path, sheet_name):
+        workbook = load_workbook(file_path)
+        sheet = workbook[sheet_name]
+        row_max = sheet.max_row  # 最大行
+        column_max = sheet.max_column  # 最大列
+        test_case = []
+        for row in range(2, row_max + 1):
+            user_data = {'username': sheet.cell(row, 1).value,
+                         'password': sheet.cell(row, 2).value,
+                         'token': sheet.cell(row, 3).value}
+            test_case.append(user_data)
+        return test_case
+
+    @staticmethod  # 静态方法
+    def write_back(file_name, sheet_name, i, j, token):
+        """
+        :param file_name: 文件名
+        :param sheet_name: 表名
+        :param i: 单元格位置,行
+        :param j: 单元格位置,列
+        :param token: token值
+        :return:
+        """
+        wb = load_workbook(file_name)
+        sheet = wb[sheet_name]
+        sheet.cell(i, j).value = token
+        wb.save(file_name)  # 保存结果
 
 
-read_case('testdata.xlsx', 'user')
+if __name__ == '__main__':
+    test_data = DoExcel.read_case('testdata.xlsx', 'user')
+    DoExcel.write_back('testdata.xlsx', 'user', 2, 3, 'True')
+    print(test_data)
 
-print("--------------------读取excel--------------------")
+    print("--------------------读取excel--------------------")
