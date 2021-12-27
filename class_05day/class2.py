@@ -28,14 +28,14 @@ print("--------------------单例模式--------------------")
 #  单例模式，类只能被实例化一次
 
 class MyTest(object):
-    instance = None  # 设置一个类属性，用来记录该类有没有创建过对象
+    __instance = None  # 设置一个类属性，用来记录该类有没有创建过对象
 
     def __new__(cls, *args, **kwargs):
-        if not cls.instance:  # if MyTest.instance
-            cls.instance = object.__new__(cls)
-            return cls.instance
+        if not cls.__instance:  # if MyTest.instance
+            cls.__instance = object.__new__(cls)
+            return cls.__instance
         else:
-            return cls.instance
+            return cls.__instance
 
 
 print("--------------------单例模式--------------------")
