@@ -13,7 +13,8 @@ class MyMetaClass(type):
     def __new__(cls, name, bases, attr_dict, *args, **kwargs):
         print('最基础的自定义元类')
         # 遍历字典键值对
-        for k, v in attr_dict.items():
+        for k, v in list(attr_dict.items()):
+            # 字典遍历时不允许添加或者删除元素，所以转换为列表
             attr_dict.pop(k)
             attr_dict[k.upper()] = v
         attr_dict['__slots'] = ['name', 'age', 'gender']

@@ -34,19 +34,22 @@ class FieldMetaClass(type):
 class BaseModel(metaclass=FieldMetaClass):  # 指定元类
     def __init__(self, **kwargs):
         for k, v in kwargs.items():
-            setattr(self,k,v)  #  遍历所有关键字参数，并且对镀锡进行属性设置，对象 属性名 属性值
+            setattr(self, k, v)  # 遍历所有关键字参数，并且对镀锡进行属性设置，对象 属性名 属性值
+
     def save(self):
         # 保存一条数据，生成一条对应的sql语句
         # 获取表名
-        t_name=self.t_name
+        t_name = self.t_name
         # 获取字段名
-        fields=self.fields
-        # field_dict={},创建一个字典用来存储键值对
+        fields = self.fields
+        field_dict = {}  # 创建一个字典用来存储键值对
         # 获取对应字段值
-        for field in fields.keys():
-            value=getattr(self,field)
+        for filed in fields.keys():
+            field_dict[filed] = getattr(self, filed)
 
         # 生成对应的sql语句
+        sql = 'INSERT INTO {} VALUE {};'.format(t_name,tuple(field_dict.values()))
+        print(sql)
 
 
 # 用户模型类
@@ -69,6 +72,7 @@ class Order(BaseModel):
 print(User.fields)
 print(User.t_name)
 xiaoming = User(username='小明', age=18, pwd='123', live=True)
-Order1=Order(id=111,money=222)
+Order1 = Order(id=111, money=222)
 print(xiaoming.username)
 print(Order1.id)
+xiaoming.save()
