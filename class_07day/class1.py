@@ -35,9 +35,11 @@ class Test(object):
         super().__delattr__(item)
 
 
-t = Test()
-t.time = 10
-t.age = 999
-del t.time  # 删除属性
-print(t.time)
-print(t.age)
+if __name__ == '__main__':
+    t = Test()
+    #  print(t.hello)  # 会触发__getattr__方法
+    t.time = 10
+    t.age = 999
+    del t.time  # 删除属性
+    print(t.time)
+    print(t.age)

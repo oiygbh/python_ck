@@ -18,14 +18,16 @@ class MyOpen(object):  # 自己定义一个文件上下文管理器
         return self.f
 
     def __exit__(self, exc_type, exc_val, exc_tb):  # 文件关闭
-        print(exc_type)
-        print(exc_val)
-        print(exc_tb)
+        # print(exc_type)
+        # print(exc_val)
+        # print(exc_tb)
         self.f.close()
 
 
-with MyOpen('test.txt', 'w') as f:
-    content = f.write("我自横刀向天笑111,,,")
-with MyOpen('test.txt', 'r') as f:
-    read=f.read()
-    print(read)
+if __name__ == '__main__':
+
+    with MyOpen('test.txt', 'w') as f:
+        content = f.write("我自横刀向天笑111")
+    with MyOpen('test.txt', 'r') as f:
+        read=f.read()
+        print(read)

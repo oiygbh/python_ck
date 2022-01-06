@@ -25,8 +25,9 @@ class Model(object):
     attr = Filed()  # 储存的是描述器对象，会覆盖类属性
 
 
-m = Model()
-m.name = '000'
-m.attr = 100
-print(m.name)
-print(m.attr)
+if __name__ == '__main__':
+    m = Model()
+    m.name = '000'
+    m.attr = 100
+    print(m.name)
+    print(m.attr)

@@ -1,8 +1,11 @@
 # -*- coding:utf-8 -*-
 # Author:toby
-# Date : 2021/12/29 16:16
-# 描述器
-class CharFiled:
+# Date : 2022/1/6 16:23
+class BaseFiled(object):
+    pass
+
+
+class CharFiled(BaseFiled):
     def __init__(self, max_lenght=20):
         self.max_lenght = max_lenght
 
@@ -22,7 +25,7 @@ class CharFiled:
         self.value = None
 
 
-class IntFiled:
+class IntFiled(BaseFiled):
 
     def __get__(self, instance, owner):
         return self.value
@@ -37,19 +40,16 @@ class IntFiled:
         self.value = None
 
 
-class UserModel(object):
-    # 假设这个是模型类
-    name = CharFiled(max_lenght=20)  # 只能赋值为字符串
-    pwd = CharFiled(max_lenght=40)
-    age = IntFiled()
+class BoolFiled(BaseFiled):
 
+    def __get__(self, instance, owner):
+        return self.value
 
-if __name__ == '__main__':
-    m = UserModel()
-    # m.name = 999
-    m.name = '99900000000'
-    m.pwd = '76gjkmvvg'
-    m.age = 18
-    print(m.name)
-    print(m.pwd)
-    print(m.age)
+    def __set__(self, instance, value):
+        if isinstance(value, bool):  # 类型限制
+            self.value = value
+        else:
+            raise ValueError
+
+    def __delete__(self, instance):
+        self.value = None
