@@ -11,7 +11,7 @@ def single(cls):
         else:
             instance[cls] = cls(*args, **kwargs)
             return instance[cls]
-        return fun
+    return fun
 
 
 @single  # Test=single(Test)
