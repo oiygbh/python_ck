@@ -24,13 +24,17 @@ class Producer(Thread):
 
     def run(self):
         # 判断队列中的商品数目是否少于50，少于50之后就开始生产200个
+
         count = 0
         while True:
+
             if q.qsize() < 50:
-                for i in range(200):
+                for i in range(20):
+                    q.put(i)  # 往栈添加数据
                     count += 1
                     goods = '--第{}个商品--'.format(count)
                     print("生产：", goods)
+
             time.sleep(1)
 
 
@@ -39,8 +43,10 @@ class Consumer(Thread):
 
     def run(self):
         while True:
+
             if q.qsize() > 10:
                 for i in range(3):
+                    q.get(i)  # 从栈取数据
                     print('消费--{}--'.format(q.get()))
             else:
                 time.sleep(2)
@@ -48,6 +54,8 @@ class Consumer(Thread):
 
 p = Producer()
 p.start()
+c = Consumer()
+
 for i in range(5):
     c = Consumer()
     c.start()
