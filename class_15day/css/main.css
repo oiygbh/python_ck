@@ -1,5 +1,22 @@
-.menu3
-{
-height:200px;
-background:red;
+.top_menu{
+    height:100px;
+    /*background:blue*/;
+    background:#000; /*黑色*/
+    background:#03c;
+}
+.title{
+    width:350px;
+    color:#fff;
+    font:normal 32px/100px 微软雅黑;
+    text-align:center;
+}
+.menu_list li{
+     width:150px;
+     height:100px;
+     background:blue;
+     float:left;
+     list-style:none;
+}
+.menu_list ul{
+    margin:0;
 }
